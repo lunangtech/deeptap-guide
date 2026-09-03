@@ -1122,18 +1122,17 @@
   <li>Template images (the cropped screenshots DeepTap uses to find buttons)</li>
 </ul>
 
-<p>Your backup is stored on the server under your <strong>Device Label</strong> — a unique name you choose in Settings. Think of it as your device's address for cloud storage.</p>
+<p>Your backup is stored on the server under your <strong>Username</strong> — one account, shared by all your devices. Set it in <strong>Config</strong>, together with a <strong>Backup password</strong>.</p>
 
-<h3>Setting Your Device Label</h3>
+<h3>Setting Your Username and Backup Password</h3>
 
-<p>The Device Label is crucial for backups. It must be:</p>
+<p>Both fields live in <strong>Config</strong>, and you need both — backing up or restoring is refused without them:</p>
 <ul>
-  <li>Unique (so your phone backup doesn't overwrite your tablet's)</li>
-  <li>Formatted simply: uppercase letters, numbers, and hyphens only (no spaces, accents, or special characters)</li>
-  <li>Descriptive: e.g., <code>PHONE-BASE</code>, <code>TABLET-TEST</code>, or <code>EMU-MAIN</code></li>
+  <li><strong>Username</strong> — your account. Registered once, then shared by every device you own.</li>
+  <li><strong>Backup password</strong> — checked when you back up, so another device using the same username cannot overwrite your data. It is not a login.</li>
 </ul>
 
-<p>Each label becomes a folder on the server where your backup lives. On a fresh install, DeepTap auto-generates a label like <code>SM-G990B-4231</code> (your device model + random numbers), but you should rename it to something you'll recognize in Settings.</p>
+<p>Pick the username once and use the same one on every device you own — that is what lets a phone restore what a tablet backed up. On a fresh install both fields are empty; DeepTap will not back up until you fill them in. You should rename it to something you'll recognize in Settings.</p>
 
 <div class="callout tip">
   <strong>Naming tip:</strong> If you plan to share automations with other devices, name your "main" device something like <code>PHONE-BASE</code> so others know it's the source to copy from.
@@ -1177,7 +1176,7 @@
   <tr>
     <td><strong>Regions (buttons)</strong></td>
     <td>Comes with the detector; templates downloaded</td>
-    <td>Merges intelligently (keeps local ones not in backup)</td>
+    <td>🔴 Completely replaces all your regions — any region not in the backup is deleted, along with its cropped image</td>
   </tr>
 </table>
 
@@ -1238,7 +1237,7 @@
 <p><strong>What Restore does:</strong></p>
 <ul>
   <li>Replaces all detectors, processes, and scripts with the source device's versions</li>
-  <li>Merges button regions by ID (so local regions you added stay, unless the source has the same ID)</li>
+  <li>Replaces every button region with the source's — regions you added locally are <strong>deleted</strong>, together with their cropped images</li>
   <li>Erases anything on your device that isn't in the source backup</li>
 </ul>
 
@@ -1261,7 +1260,7 @@
 
 <h3>Web Dashboard Access</h3>
 
-<p>You can also view and manage your backups through the web dashboard at the server URL configured in Settings. The dashboard is protected with a login (Basic Authentication). From there you can:</p>
+<p>Your backups can also be viewed and managed from a web dashboard, kept by whoever runs the server. It is protected with a login, and the address is not something you enter in the app any more. From there they can:</p>
 <ul>
   <li>See all your device backups and their timestamps</li>
   <li>Preview detectors, processes, and scripts</li>
@@ -2205,18 +2204,17 @@
   <li>Các ảnh Template (ảnh cắt mà DeepTap dùng để tìm nút)</li>
 </ul>
 
-<p>Bản sao lưu được lưu trên máy chủ dưới <strong>Device Label</strong> của bạn — một cái tên riêng biệt bạn tự đặt trong phần cài đặt. Bạn cứ coi nó như địa chỉ của máy bạn trên kho lưu trữ đám mây.</p>
+<p>Bản sao lưu được lưu trên máy chủ dưới <strong>Username</strong> của bạn — một tài khoản dùng chung cho mọi máy của bạn. Đặt nó trong <strong>Config</strong>, cùng với <strong>Backup password</strong>.</p>
 
-<h3>Đặt Device Label cho máy</h3>
+<h3>Đặt Username và Backup password</h3>
 
-<p>Device Label rất quan trọng với việc sao lưu. Nó cần:</p>
+<p>Cả hai ô đều nằm trong <strong>Config</strong>, và phải có đủ cả hai — thiếu một cái là không sao lưu hay khôi phục được:</p>
 <ul>
-  <li>Không trùng nhau (để bản sao lưu điện thoại không đè lên bản của máy tính bảng)</li>
-  <li>Viết đơn giản: chỉ chữ in hoa, chữ số và dấu gạch nối (không dấu cách, không dấu tiếng Việt, không ký tự đặc biệt)</li>
-  <li>Dễ nhận ra: ví dụ <code>PHONE-BASE</code>, <code>TABLET-TEST</code>, hay <code>EMU-MAIN</code></li>
+  <li><strong>Username</strong> — tài khoản của bạn. Đăng ký một lần, mọi máy của bạn dùng chung.</li>
+  <li><strong>Backup password</strong> — được kiểm khi sao lưu, để một máy khác dùng trùng username không ghi đè lên dữ liệu của bạn. Đây không phải mật khẩu đăng nhập.</li>
 </ul>
 
-<p>Mỗi label trở thành một thư mục trên máy chủ chứa bản sao lưu của bạn. Khi mới cài, DeepTap tự sinh một label kiểu <code>SM-G990B-4231</code> (mã máy của bạn + vài số ngẫu nhiên), nhưng bạn nên vào phần cài đặt đổi lại thành cái tên mà bạn dễ nhận ra.</p>
+<p>Chọn username một lần rồi dùng đúng nó trên mọi máy của bạn — đó chính là thứ cho phép điện thoại khôi phục thứ máy tính bảng vừa sao lưu. Khi mới cài, cả hai ô đều trống và DeepTap sẽ không sao lưu cho tới khi bạn điền. Bạn nên vào phần cài đặt đổi lại thành cái tên mà bạn dễ nhận ra.</p>
 
 <div class="callout tip">
   <strong>Mẹo đặt tên:</strong> Nếu bạn định chia sẻ cấu hình cho các máy khác, hãy đặt máy "chính" một cái tên kiểu <code>PHONE-BASE</code> để mọi người biết đó là nguồn để chép về.
@@ -2260,7 +2258,7 @@
   <tr>
     <td><strong>Region (các nút)</strong></td>
     <td>Đi kèm theo Detector; Template được tải về</td>
-    <td>Hoà một cách thông minh (giữ lại các Region ở máy mà bản sao lưu không có)</td>
+    <td>🔴 Thay sạch toàn bộ Region — Region nào không có trong bản sao lưu sẽ bị xoá, kèm cả ảnh crop của nó</td>
   </tr>
 </table>
 
@@ -2321,7 +2319,7 @@
 <p><strong>Restore làm những gì:</strong></p>
 <ul>
   <li>Thay toàn bộ Detector, Process và Script bằng bản của máy nguồn</li>
-  <li>Hoà các Region của nút theo ID (nên những Region bạn tự thêm vẫn còn, trừ khi máy nguồn có Region trùng ID)</li>
+  <li>Thay sạch mọi Region của nút bằng Region của máy nguồn — Region bạn tự thêm sẽ bị <strong>xoá</strong>, kèm cả ảnh crop</li>
   <li>Xoá mọi thứ trên máy bạn mà bản sao lưu nguồn không có</li>
 </ul>
 
@@ -2344,7 +2342,7 @@
 
 <h3>Truy cập bảng điều khiển web</h3>
 
-<p>Bạn cũng có thể xem và quản lý các bản sao lưu qua bảng điều khiển web, tại địa chỉ máy chủ đã khai trong phần cài đặt. Trang này có bảo vệ bằng đăng nhập (Basic Authentication). Từ đó bạn có thể:</p>
+<p>Các bản sao lưu còn xem và quản lý được qua một trang web quản trị, do người vận hành máy chủ giữ. Trang đó có bảo vệ bằng đăng nhập, và địa chỉ của nó không còn là thứ bạn phải nhập trong app nữa. Từ đó có thể:</p>
 <ul>
   <li>Xem tất cả bản sao lưu của các máy kèm thời điểm sao lưu</li>
   <li>Xem trước các Detector, Process và Script</li>
@@ -3288,18 +3286,17 @@
   <li>Template 图片（DeepTap 用来找按钮的裁剪截图）</li>
 </ul>
 
-<p>你的备份以 <strong>Device Label</strong>（设备标签）为名存放在服务器上 —— 这是你在设置里自定的一个唯一名称，可以把它理解成设备在云端存储中的地址。</p>
+<p>你的备份以 <strong>Username</strong>（用户名）为名存放在服务器上 —— 一个账号，你所有设备共用。在 <strong>Config</strong> 里设置它，同时设置 <strong>Backup password</strong>。</p>
 
-<h3>设置 Device Label</h3>
+<h3>设置 Username 和 Backup password</h3>
 
-<p>Device Label 对备份至关重要。它必须：</p>
+<p>两项都在 <strong>Config</strong> 里，而且缺一不可 —— 少了任何一个都无法备份或恢复：</p>
 <ul>
-  <li>唯一（这样手机的备份才不会覆盖平板的）</li>
-  <li>格式简单：只能用大写字母、数字和连字符（不能有空格、声调符号或特殊字符）</li>
-  <li>有辨识度：例如 <code>PHONE-BASE</code>、<code>TABLET-TEST</code> 或 <code>EMU-MAIN</code></li>
+  <li><strong>Username</strong> —— 你的账号。注册一次，你名下所有设备共用。</li>
+  <li><strong>Backup password</strong> —— 备份时校验，防止另一台用同样用户名的设备覆盖你的数据。它不是登录密码。</li>
 </ul>
 
-<p>每个标签在服务器上对应一个存放备份的文件夹。全新安装时，DeepTap 会自动生成一个类似 <code>SM-G990B-4231</code> 的标签（设备型号 + 随机数字），但建议你在设置里把它改成自己一眼就认得出的名字。</p>
+<p>用户名只需选一次，然后在你所有设备上都用同一个 —— 手机之所以能恢复平板刚备份的内容，靠的就是它。全新安装时两个字段都是空的，填好之前 DeepTap 不会备份。</p>
 
 <div class="callout tip">
   <strong>命名建议：</strong>如果你打算把自动化配置分享给其他设备，把"主力"设备命名为 <code>PHONE-BASE</code> 之类，别人一看就知道该从哪台复制。
@@ -3343,7 +3340,7 @@
   <tr>
     <td><strong>Region（按钮）</strong></td>
     <td>随 Detector 一起过来，Template 会被下载</td>
-    <td>智能合并（备份里没有的本地 Region 会保留）</td>
+    <td>🔴 完全替换所有 Region —— 备份里没有的 Region 会被删除，连同它的裁剪图片</td>
   </tr>
 </table>
 
@@ -3404,7 +3401,7 @@
 <p><strong>Restore 会做什么：</strong></p>
 <ul>
   <li>用来源设备的版本替换所有 Detector、Process 和 Script</li>
-  <li>按 ID 合并按钮 Region（所以你本地新增的 Region 会保留，除非来源里有相同 ID 的）</li>
+  <li>用来源的 Region 完全替换 —— 你本地新增的 Region 会被<strong>删除</strong>，连同裁剪图片</li>
   <li>抹掉本机上一切不在来源备份里的内容</li>
 </ul>
 
@@ -3427,7 +3424,7 @@
 
 <h3>访问网页管理后台</h3>
 
-<p>你也可以通过网页管理后台查看和管理备份，地址就是你在设置里配置的服务器 URL。后台有登录保护（Basic Authentication）。在那里你可以：</p>
+<p>备份也可以通过网页管理后台查看和管理，由运行服务器的人保管。后台有登录保护，地址不再需要你在 app 里填写。在那里可以：</p>
 <ul>
   <li>查看所有设备的备份及其时间戳</li>
   <li>预览各个 Detector、Process 和 Script</li>
